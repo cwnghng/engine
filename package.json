@@ -8,7 +8,7 @@
     "build": "tsc",
     "lint": "yarn prettier --check ./ && eslint ./src --ext .ts --max-warnings=0",
     "format": "prettier --write .",
-    "test": "jest ./src --passWithNoTests"
+    "test": "jest ./test --passWithNoTests --watch"
   },
   "devDependencies": {
     "@types/jest": "^29.5.2",

@@ -8,29 +8,53 @@ class Vec2 {
     this.y = y;
   }
 
-  invert(): void {
+  public clone(): Vec2 {
+    return new Vec2(this.x, this.y);
+  }
+
+  public invert(): void {
     this.x = -this.x;
     this.y = -this.y;
   }
 
-  magnitude(): number {
+  public magnitude(): number {
     return Math.sqrt(this.x * this.x + this.y * this.y);
   }
 
-  magnitudeSquare(): number {
+  public magnitudeSquare(): number {
     return this.x * this.x + this.y * this.y;
   }
 
-  normalize(): void {
-    const length = this.magnitude();
+  public normalize(): void {
+    const mag = this.magnitude();
 
-    this.x *= length;
-    this.y *= length;
+    console.log(mag * mag);
+
+    if (mag === 0) return;
+    this.scale(1 / mag);
   }
 
-  scale(k: number) {
+  public scale(k: number): void {
     this.x *= k;
     this.y *= k;
+  }
+
+  public add(vec: Vec2): void {
+    this.x += vec.x;
+    this.y += vec.y;
+  }
+
+  public subtract(vec: Vec2): void {
+    this.x -= vec.x;
+    this.y -= vec.y;
+  }
+
+  public multiplyComponent(vec: Vec2): Vec2 {
+    return new Vec2(this.x * vec.x, this.y * vec.y);
+  }
+
+  public multiplyScalar(vec: Vec2): number {
+    return this.x * vec.x + this.y * vec.y;
   }
 }
 
