@@ -28,8 +28,6 @@ class Vec2 {
   public normalize(): void {
     const mag = this.magnitude();
 
-    console.log(mag * mag);
-
     if (mag === 0) return;
     this.scale(1 / mag);
   }
@@ -42,6 +40,11 @@ class Vec2 {
   public add(vec: Vec2): void {
     this.x += vec.x;
     this.y += vec.y;
+  }
+
+  public addScaledVector(vec: Vec2, k: number): void {
+    this.x += k * vec.x;
+    this.y += k * vec.y;
   }
 
   public subtract(vec: Vec2): void {
