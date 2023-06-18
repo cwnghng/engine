@@ -8,9 +8,10 @@
     "build": "tsc",
     "lint": "yarn prettier --check ./ && eslint ./src --ext .ts --max-warnings=0",
     "format": "prettier --write .",
-    "test": "jest ./src --passWithNoTests"
+    "test": "jest ./test --passWithNoTests --watch"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.2",
     "@types/node": "^20.2.5",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
